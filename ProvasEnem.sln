@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvasEnem.Core", "ProvasEnem.Core\ProvasEnem.Core.csproj", "{4CED1538-ED4F-4D3A-A000-2FA30DBA6473}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvasEnem.Api", "ProvasEnem.Api\ProvasEnem.Api.csproj", "{805C9015-CF18-4454-8043-8214EB72D492}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4CED1538-ED4F-4D3A-A000-2FA30DBA6473}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CED1538-ED4F-4D3A-A000-2FA30DBA6473}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CED1538-ED4F-4D3A-A000-2FA30DBA6473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{805C9015-CF18-4454-8043-8214EB72D492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805C9015-CF18-4454-8043-8214EB72D492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805C9015-CF18-4454-8043-8214EB72D492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805C9015-CF18-4454-8043-8214EB72D492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
