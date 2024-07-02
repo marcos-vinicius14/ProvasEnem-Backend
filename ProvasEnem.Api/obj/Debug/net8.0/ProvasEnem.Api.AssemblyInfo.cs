@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProvasEnem.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+093569eae38d6c5925634c0537bc27bb125e98fa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+521fc560ebb4ba9f7d119982123c96b120381f2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProvasEnem.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProvasEnem.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
