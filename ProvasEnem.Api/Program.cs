@@ -1,11 +1,10 @@
+using ProvasEnem.Api.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen( x =>
-{
-    x.CustomSchemaIds(n => n.FullName);
-});
+builder.AddSwagger();
+builder.AddDbContext();
 
 app.UseSwagger();
 app.UseSwaggerUI();
