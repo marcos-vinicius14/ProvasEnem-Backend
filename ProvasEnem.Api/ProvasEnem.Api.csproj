@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>147395b5-5f22-4a08-9aba-5468dae68e45</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,10 +15,20 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ProvasEnem.Core\ProvasEnem.Core.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Configuration.cs" />
+    <Compile Remove="Extensions\DependenciesExtension.cs" />
+  </ItemGroup>
+
+
+
 
 </Project>

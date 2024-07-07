@@ -1,6 +1,9 @@
 ﻿namespace ProvasEnem.Api.Extensions;
 
-public class DependenciesExtension
+public static class DependenciesExtension
 {
-    
+    public static void AddDb(this IServiceCollection service)
+    {
+        var cnn = service.
+    }
 }
