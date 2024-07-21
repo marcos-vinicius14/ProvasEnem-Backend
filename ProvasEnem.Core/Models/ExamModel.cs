@@ -1,11 +1,24 @@
 ﻿
+using Google.Cloud.Firestore;
+using ProvasEnem.Core.Enums;
 
 namespace ProvasEnem.Core.Models;
 
+[FirestoreData]
 public class ExamModel
 {
-    public int Id { get; set; }
-    public byte[] ContentPdf { get; set; } = null!;
-    public string ColorNotebook { get; set; } = string.Empty;
-    public DateTime ExamDate { get; set; }
+    [FirestoreDocumentId]
+    public string ExamId { get; set; } = string.Empty;
+
+    [FirestoreProperty]
+    public string ExamPdfUrl { get; set; } = string.Empty;
+
+    [FirestoreProperty]
+    public string? ColorNotebook { get; set; }
+
+    [FirestoreProperty]
+    public int YearExam { get; set; }
+
+    [FirestoreProperty]
+    public DayOfExam DayExam { get; set; }
 }

@@ -24,9 +24,18 @@ public class ExamMapping : IEntityTypeConfiguration<ExamModel>
             .HasColumnType("DATETIME2")
             .HasMaxLength(20);
 
-        builder.Property(x => x.ContentPdf)
+        builder.Property(x => x.ExamPdf)
             .IsRequired(true)
             .HasColumnName("PDF")
-            .HasColumnType("IMAGE");
+            .HasColumnType("VARBINARY(MAX)");
+
+        builder.Property(x => x.ResultPdf)
+            .IsRequired(true)
+            .HasColumnName("Gabarito de provas")
+            .HasColumnType("VARBINARY(MAX)");
+
+        builder.Property(x => x.DayExam)
+            .IsRequired(true)
+            .HasColumnName("Dia");
     }
 }
