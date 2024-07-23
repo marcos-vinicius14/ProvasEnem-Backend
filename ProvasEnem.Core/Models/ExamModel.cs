@@ -7,7 +7,6 @@ namespace ProvasEnem.Core.Models;
 [FirestoreData]
 public class ExamModel
 {
-    [FirestoreDocumentId]
     public string ExamId { get; set; } = string.Empty;
 
     [FirestoreProperty]

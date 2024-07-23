@@ -11,12 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("ProvasEnem.Core")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("147395b5-5f22-4a08-9aba-5468dae68e45")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ProvasEnem.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd678fab7f36855a6b2c9d978a58e984cfec7604")]
-[assembly: System.Reflection.AssemblyProductAttribute("ProvasEnem.Core")]
-[assembly: System.Reflection.AssemblyTitleAttribute("ProvasEnem.Core")]
+[assembly: System.Reflection.AssemblyProductAttribute("ProvasEnem.Api")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ProvasEnem.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
