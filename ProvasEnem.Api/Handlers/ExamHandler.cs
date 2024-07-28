@@ -1,11 +1,8 @@
-﻿
-using Google.Cloud.Storage.V1;
-using ProvasEnem.Api.Data;
+﻿using ProvasEnem.Api.Data;
 using ProvasEnem.Core.Handlers;
 using ProvasEnem.Core.Models;
 using ProvasEnem.Core.Requests.Exams;
 using ProvasEnem.Core.Responses;
-using System.IO;
 
 namespace ProvasEnem.Api.Handlers;
 
@@ -18,25 +15,37 @@ public class ExamHandler : IExamHandler
         _firebaseDb = firebaseDb;
     }
 
-    public async Task<IEnumerable<Response<string>>> ListAllPdf(GetExamByYearRequest request)
+    public async Task<IEnumerable<Response<ExamModel>>> ListAllPdf(string prefix)
     {
-        if (string.IsNullOrEmpty(request.Prefix))
+        if (string.IsNullOrEmpty(prefix))
             throw new InvalidOperationException("Prefixo vazio");
 
-        var pdfFiles = new List<string>();
+        //var pdfFiles = new List<string>();
+        var listPdfs = new List<Response<ExamModel>>();
 
 
-        await foreach (var pdf in _firebaseDb.storageDb.ListObjectsAsync(_firebaseDb.bucketName, request.Prefix))
+        await foreach (var pdf in _firebaseDb.storageDb.ListObjectsAsync(_firebaseDb.bucketName, prefix))
         {
             if(pdf.Name.EndsWith(".pdf"))
-                pdfFiles.Add(pdf.Name);
+            {
+                await _firebaseDb.MakeObjectPublic(pdf.Name);
+                var model = new ExamModel
+                {
+                    Name = pdf.Name,
+                    ExamUrl = pdf.MediaLink,
+                    Prefix = prefix,
+                };
+
+                listPdfs.Add(new Response<ExamModel>(model, 200, "Ok"));
+            }
         }
 
-        return pdfFiles.Select(file => new Response<string>(file, 200, "Operaçao realizada com sucesso"));
+        return listPdfs;
+
 
     }
 
-    public async Task<Response<Stream>> DownloadPdf(GetExamByYearAndNameRequest request)
+    public async Task<Response<Stream>> DownloadPdf(GetExamByYearAndDayRequest request)
     {
         if(string.IsNullOrEmpty(request.FileName))
             throw new InvalidOperationException("Não foi possível realizar o downlod.");
@@ -48,7 +57,7 @@ public class ExamHandler : IExamHandler
         await _firebaseDb.storageDb.DownloadObjectAsync(_firebaseDb.bucketName, filePath, memoryStream);
         memoryStream.Position = 0;
 
-        return new Response<Stream>(memoryStream, 200, "Operação realizada com sucesso");
+        return new Response<Stream>(memoryStream, 200, "Operação realizada com sucesso.");
 
 
     }

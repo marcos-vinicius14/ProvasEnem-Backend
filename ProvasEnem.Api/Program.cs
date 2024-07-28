@@ -1,18 +1,16 @@
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using ProvasEnem.Api.Common.Endpoints;
 using ProvasEnem.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-
-
-builder.AddSwagger();
-builder.AddDbContext();
 
 builder.Services.AddSingleton();
+builder.Services.AddTransient();
+builder.Services.AddSwagger();
 
+var app = builder.Build();
 
 app.UseSwaggerApi();
-
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", ()  => new { Message = "Ok"});
+app.MapEndpoints();
 
 app.Run();

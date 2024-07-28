@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProvasEnem.Core.Requests.Exams;
 
-public class GetExamByYearAndNameRequest
+public class GetExamByYearAndDayRequest
 {
     [Required(ErrorMessage = "Informe o nome do arquivo")]
     [MaxLength(30)]

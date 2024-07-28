@@ -1,28 +1,42 @@
-﻿using Google.Cloud.Storage.V1;
-using System.IO;
-
+﻿using Google.Apis.Storage.v1.Data;
+using Google.Cloud.Storage.V1;
 namespace ProvasEnem.Api.Data;
 
 public class FirebaseDb
 {
     private readonly StorageClient _storageClient;
-    private readonly string _bucketName = APIConfiguration.BucketName;
+    private readonly string _bucketName;
+    public StorageClient storageDb => _storageClient;
+    public string bucketName => _bucketName;
 
     public FirebaseDb(IConfiguration configuration)
     {
         var credentialsPath = configuration["Firebase:CredentialsPath"];
+        var path = configuration["Firebase:BucketName"];
 
-        if (string.IsNullOrEmpty(credentialsPath))
-            throw new InvalidOperationException("Credencials is empty");
+        if (string.IsNullOrEmpty(credentialsPath) || string.IsNullOrEmpty(path))
+            throw new InvalidOperationException("Internal server error");
+
+
+        _bucketName = path;
 
         var credential = Google.Apis.Auth.OAuth2.GoogleCredential.FromFile(credentialsPath);
         _storageClient = StorageClient.Create(credential);
     }
 
-    public StorageClient storageDb => _storageClient;
-    public string bucketName => _bucketName;
+    public async Task MakeObjectPublic(string objectName)
+    {
+        var obj = await _storageClient.GetObjectAsync(_bucketName, objectName);
 
+        obj.Acl = obj.Acl ?? new List<ObjectAccessControl>();
+        obj.Acl.Add(new ObjectAccessControl
+        {
+            Entity = "allUsers",
+            Role = "READER"
+        });
 
-  
+        await _storageClient.UpdateObjectAsync(obj);
+
+    }
 }
 

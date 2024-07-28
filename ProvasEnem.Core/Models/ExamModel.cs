@@ -7,17 +7,13 @@ namespace ProvasEnem.Core.Models;
 [FirestoreData]
 public class ExamModel
 {
-    public string ExamId { get; set; } = string.Empty;
+    [FirestoreProperty]
+    public string Name { get;  set; } = string.Empty;
 
     [FirestoreProperty]
-    public string ExamPdfUrl { get; set; } = string.Empty;
+    public string Prefix { get;  set; } = string.Empty;
 
     [FirestoreProperty]
-    public string? ColorNotebook { get; set; }
+    public string ExamUrl { get; set; } = string.Empty;
 
-    [FirestoreProperty]
-    public int YearExam { get; set; }
-
-    [FirestoreProperty]
-    public DayOfExam DayExam { get; set; }
 }

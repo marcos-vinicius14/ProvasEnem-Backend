@@ -1,5 +1,4 @@
-﻿using ProvasEnem.Core.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProvasEnem.Core.Requests.Exams;
 
