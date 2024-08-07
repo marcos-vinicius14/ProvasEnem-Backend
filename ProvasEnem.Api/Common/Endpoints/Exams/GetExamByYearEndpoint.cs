@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProvasEnem.Api.Common.Api;
 using ProvasEnem.Core.Handlers;
+using ProvasEnem.Core.Requests.Exams;
 
 namespace ProvasEnem.Api.Common.Endpoints.Exams;
 

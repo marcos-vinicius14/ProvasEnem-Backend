@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProvasEnem.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15ee8331a3ed28b61869dd22c6ba64fdc66ebe9d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab47330774233006027fe791fb32ec610bcd2890")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProvasEnem.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProvasEnem.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

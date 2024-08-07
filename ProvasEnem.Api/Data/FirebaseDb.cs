@@ -11,8 +11,8 @@ public class FirebaseDb
 
     public FirebaseDb(IConfiguration configuration)
     {
-        var credentialsPath = configuration["Firebase:CredentialsPath"];
-        var path = configuration["Firebase:BucketName"];
+        var credentialsPath = configuration["FIREBASE_CREDENTIALS_JSON"];
+        var path = configuration["Firebase:BucketName1"];
 
         if (string.IsNullOrEmpty(credentialsPath) || string.IsNullOrEmpty(path))
             throw new InvalidOperationException("Internal server error");
@@ -20,7 +20,7 @@ public class FirebaseDb
 
         _bucketName = path;
 
-        var credential = Google.Apis.Auth.OAuth2.GoogleCredential.FromFile(credentialsPath);
+        var credential = Google.Apis.Auth.OAuth2.GoogleCredential.FromJson(credentialsPath);
         _storageClient = StorageClient.Create(credential);
     }
 

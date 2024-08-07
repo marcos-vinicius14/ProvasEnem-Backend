@@ -1,7 +1,5 @@
 ﻿using ProvasEnem.Api.Data;
 using ProvasEnem.Core.Handlers;
-using ProvasEnem.Core.Models;
-using ProvasEnem.Core.Requests.Exams;
 using ProvasEnem.Core.Responses;
 
 namespace ProvasEnem.Api.Handlers;
@@ -15,13 +13,14 @@ public class ExamHandler : IExamHandler
         _firebaseDb = firebaseDb;
     }
 
-    public async Task<IEnumerable<Response<ExamModel>>> ListAllPdf(string prefix)
+    public async Task<IEnumerable<Response<ExamResponse>>> ListAllPdf(string prefix)
     {
+        //provas/2020/dia-01
         if (string.IsNullOrEmpty(prefix))
-            throw new InvalidOperationException("Prefixo vazio");
+            throw new InvalidOperationException("Falha interna.");
 
         //var pdfFiles = new List<string>();
-        var listPdfs = new List<Response<ExamModel>>();
+        var listPdfs = new List<Response<ExamResponse>>();
 
 
         await foreach (var pdf in _firebaseDb.storageDb.ListObjectsAsync(_firebaseDb.bucketName, prefix))
@@ -29,14 +28,14 @@ public class ExamHandler : IExamHandler
             if(pdf.Name.EndsWith(".pdf"))
             {
                 await _firebaseDb.MakeObjectPublic(pdf.Name);
-                var model = new ExamModel
+                var model = new ExamResponse
                 {
-                    Name = pdf.Name,
-                    ExamUrl = pdf.MediaLink,
+                    FileName = pdf.Name,
+                    DownloadUrl = pdf.MediaLink,
                     Prefix = prefix,
                 };
 
-                listPdfs.Add(new Response<ExamModel>(model, 200, "Ok"));
+                listPdfs.Add(new Response<ExamResponse>(model, 200, "Ok"));
             }
         }
 
@@ -45,20 +44,4 @@ public class ExamHandler : IExamHandler
 
     }
 
-    public async Task<Response<Stream>> DownloadPdf(GetExamByYearAndDayRequest request)
-    {
-        if(string.IsNullOrEmpty(request.FileName))
-            throw new InvalidOperationException("Não foi possível realizar o downlod.");
-            
-         var filePath = $"{_firebaseDb.bucketName}/{request.DayOfExam}/{request.FileName}";
-
-        var memoryStream = new MemoryStream();
-
-        await _firebaseDb.storageDb.DownloadObjectAsync(_firebaseDb.bucketName, filePath, memoryStream);
-        memoryStream.Position = 0;
-
-        return new Response<Stream>(memoryStream, 200, "Operação realizada com sucesso.");
-
-
-    }
 }

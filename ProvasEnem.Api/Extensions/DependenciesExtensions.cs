@@ -9,7 +9,7 @@ public static class DependenciesExtensions
 {
     public static void AddSingleton(this IServiceCollection services)
     {
-        services.TryAddSingleton<FirebaseDb>();
+        services.AddSingleton<FirebaseDb>();
     }
 
     public static void AddTransient(this IServiceCollection services)

@@ -2318,35 +2318,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vinim\\.nuget\\packages\\": {}
+    "/home/v/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vinim\\Projetos\\ProvasEnem\\ProvasEnem.Api\\ProvasEnem.Api.csproj",
+      "projectUniqueName": "/home/v/Projetos/ProvasEnem-Backend/ProvasEnem.Api/ProvasEnem.Api.csproj",
       "projectName": "ProvasEnem.Api",
-      "projectPath": "C:\\Users\\vinim\\Projetos\\ProvasEnem\\ProvasEnem.Api\\ProvasEnem.Api.csproj",
-      "packagesPath": "C:\\Users\\vinim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vinim\\Projetos\\ProvasEnem\\ProvasEnem.Api\\obj\\",
+      "projectPath": "/home/v/Projetos/ProvasEnem-Backend/ProvasEnem.Api/ProvasEnem.Api.csproj",
+      "packagesPath": "/home/v/.nuget/packages/",
+      "outputPath": "/home/v/Projetos/ProvasEnem-Backend/ProvasEnem.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vinim\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/v/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\vinim\\Projetos\\ProvasEnem\\ProvasEnem.Core\\ProvasEnem.Core.csproj": {
-              "projectPath": "C:\\Users\\vinim\\Projetos\\ProvasEnem\\ProvasEnem.Core\\ProvasEnem.Core.csproj"
+            "/home/v/Projetos/ProvasEnem-Backend/ProvasEnem.Core/ProvasEnem.Core.csproj": {
+              "projectPath": "/home/v/Projetos/ProvasEnem-Backend/ProvasEnem.Core/ProvasEnem.Core.csproj"
             }
           }
         }
@@ -2355,11 +2352,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2402,7 +2394,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
